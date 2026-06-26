@@ -1,0 +1,768 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+height:100vh;
+overflow:hidden;
+background:#08131d;
+color:white;
+
+}
+
+.container{
+
+width:100%;
+height:100vh;
+
+}
+
+/* ================= NAVIGATION ================= */
+
+nav{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1200px;
+    padding:15px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+
+    border:2px solid rgba(0,225,255,.4);
+    border-radius:20px;
+
+    box-shadow:0 0 20px rgba(0,225,255,.4);
+
+    animation:navGlow 3s ease-in-out infinite,
+              navFloat 5s ease-in-out infinite;
+
+    z-index:999;
+}
+
+nav h2{
+    color:#fff;
+    letter-spacing:2px;
+    font-size:28px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:20px;
+}
+
+nav ul li{
+    list-style:none;
+}
+
+nav a{
+
+    position:relative;
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:10px 22px;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+/* Hover */
+
+nav a:hover{
+
+    background:#00d9ff;
+
+    color:#08131d;
+
+    transform:scale(1.15);
+
+    box-shadow:0 0 20px #00d9ff;
+
+}
+
+/* Active */
+
+nav a.active{
+
+    background:#00d9ff;
+
+    color:#08131d;
+
+    box-shadow:0 0 25px #00d9ff;
+
+}
+
+/* Underline */
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:3px;
+
+    border-radius:10px;
+
+    background:#00d9ff;
+
+    transform:translateX(-50%);
+
+    transition:.4s;
+
+}
+
+nav a:hover::after{
+
+    width:80%;
+
+}
+
+/* Glow Animation */
+
+@keyframes navGlow{
+
+0%{
+
+box-shadow:0 0 15px rgba(0,225,255,.3);
+
+}
+
+50%{
+
+box-shadow:0 0 35px rgba(0,225,255,1);
+
+}
+
+100%{
+
+box-shadow:0 0 15px rgba(0,225,255,.3);
+
+}
+
+}
+
+/* Floating */
+
+@keyframes navFloat{
+
+0%{
+
+transform:translateX(-50%) translateY(0px);
+
+}
+
+50%{
+
+transform:translateX(-50%) translateY(-5px);
+
+}
+
+100%{
+
+transform:translateX(-50%) translateY(0px);
+
+}
+
+}
+
+.page{
+
+position:absolute;
+
+width:100%;
+height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+opacity:0;
+visibility:hidden;
+
+transition:1s;
+
+}
+
+.page.active{
+
+opacity:1;
+visibility:visible;
+
+}
+
+#home{
+
+background:url("ewbn.jpg") center/cover;
+
+}
+
+.travel-bg{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:url("ewbn.jpg") center/cover;
+
+filter:brightness(.35);
+
+z-index:-1;
+
+}
+
+.overlay{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.55);
+
+}
+
+.box{
+
+width:75%;
+
+padding:50px;
+
+display:flex;
+
+justify-content:space-between;
+align-items:center;
+
+background:rgba(255,255,255,.08);
+
+border-radius:25px;
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.2);
+
+transition:.4s;
+
+animation:float 4s infinite;
+
+
+
+}
+
+.box:hover{
+
+transform:scale(1.02);
+
+box-shadow:0 0 30px cyan;
+
+}
+
+.home-box{
+
+display:flex;
+
+
+
+}
+
+.left{
+
+width:50%;
+
+}
+
+.left h1{
+
+font-size:60px;
+margin:15px 0;
+
+}
+
+.left h2{
+
+color:#00d9ff;
+
+margin-bottom:20px;
+
+}
+
+.left p{
+
+line-height:28px;
+
+margin-bottom:30px;
+
+}
+
+button{
+
+padding:15px 40px;
+
+border:none;
+
+background:#00d9ff;
+
+color:black;
+
+font-size:18px;
+
+border-radius:40px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+button:hover{
+
+transform:scale(1.15);
+
+}
+
+.right{
+
+width:40%;
+text-align:center;
+
+}
+
+.right img{
+
+width:320px;
+
+border-radius:50%;
+
+transition:.5s;
+
+}
+
+.right img:hover{
+
+transform:scale(1.08);
+
+}
+
+#about .box,
+#travel .box,
+#contact .box{
+
+display:block;
+
+text-align:center;
+
+}
+
+h1{
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:18px;
+
+line-height:35px;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ===================================
+           HOME CONTENT BOX
+=================================== */
+
+.home-box{
+    position:relative;
+    z-index:2;
+
+    width:65%;
+    max-width:900px;
+    min-height:450px;
+
+    padding:35px 45px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:25px;
+
+    box-shadow:0 0 25px rgba(0,225,255,.25);
+
+    transition:.4s ease;
+}
+
+.home-box:hover{
+    transform:scale(1.02);
+    box-shadow:0 0 40px rgba(0,225,255,.8);
+}
+
+/* ===================================
+            LEFT CONTENT
+=================================== */
+
+.left{
+    flex:1;
+}
+
+.left h3{
+    font-size:20px;
+    color:#ffffff;
+    margin-bottom:10px;
+}
+
+.left h1{
+    font-size:48px;
+    margin-bottom:15px;
+    color:#ffffff;
+}
+
+.left h2{
+    font-size:26px;
+    color:#00d9ff;
+    margin-bottom:20px;
+}
+
+.left p{
+    font-size:16px;
+    line-height:28px;
+    color:#e5e5e5;
+    margin-bottom:30px;
+}
+
+/* ===================================
+              BUTTON
+=================================== */
+
+button{
+    padding:14px 35px;
+
+    border:none;
+    border-radius:30px;
+
+    background:#00d9ff;
+    color:#08131d;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:.4s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 25px #00d9ff;
+}
+
+/* ===================================
+          PROFILE IMAGE
+=================================== */
+
+.right{
+    flex:0 0 280px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.right img{
+    width:240px;
+    height:240px;
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:5px solid #00d9ff;
+
+    box-shadow:0 0 30px rgba(0,225,255,.8);
+
+    transition:.5s;
+}
+
+.right img:hover{
+    transform:scale(1.08) rotate(3deg);
+    box-shadow:0 0 45px #00d9ff;
+}
+
+
+.about{
+    position:relative;
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background-image:url("ewbn.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    overflow:hidden;
+}
+
+/* ===========================
+      TRAVEL GALLERY
+=========================== */
+
+.travel-gallery{
+    margin-top:30px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.travel-gallery img{
+    width:100%;
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    border:3px solid #00d9ff;
+
+    box-shadow:0 0 15px rgba(0,225,255,.5);
+
+    transition:.4s;
+}
+
+.travel-gallery img:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #00d9ff;
+}
+
+/* CONTACT CONTAINER */
+
+.contact-container{
+    width:70%;
+    max-width:800px;
+    text-align:center;
+}
+
+.contact-container h1{
+    color:#00d9ff;
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+/* INFO BOX */
+
+.info-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+
+    border:2px solid rgba(0,225,255,.5);
+    border-radius:15px;
+
+    padding:18px;
+    margin:18px 0;
+
+    box-shadow:0 0 15px rgba(0,225,255,.4);
+
+    transition:.4s;
+
+    animation:floatCard 4s ease-in-out infinite;
+}
+
+/* Hover */
+
+.info-card:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px #00d9ff;
+    border-color:#00d9ff;
+}
+
+/* Title */
+
+.info-card h3{
+    color:#00d9ff;
+    margin-bottom:10px;
+}
+
+/* Text */
+
+.info-card p{
+    color:white;
+    font-size:18px;
+}
+
+/* Floating Animation */
+
+@keyframes floatCard{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+/* ================= CONTACT BACKGROUND ================= */
+
+#contact{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("ewbn.jpg"); /* Palitan ng pangalan ng image mo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+/* Overlay para mas mabasa ang text */
+#contact::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.15);
+    z-index: 1;
+}
+
+/* Mananatili sa ibabaw ang contact box */
+#contact .contact-container,
+#contact .animated-box,
+#contact .info-box,
+#contact .box{
+    position: relative;
+    z-index: 2;
+}
+
+/* Navigation */
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li a{
+    display:block;
+    padding:12px 25px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+
+    border:2px solid rgba(0,225,255,.5);
+    border-radius:15px;
+
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.4s;
+
+    box-shadow:0 0 15px rgba(0,225,255,.3);
+
+    animation:buttonGlow 3s ease-in-out infinite;
+}
+
+/* Hover */
+
+nav ul li a:hover{
+    background:#00d9ff;
+    color:#08131d;
+
+    transform:scale(1.1);
+
+    box-shadow:0 0 30px #00d9ff;
+}
+
+/* Active */
+
+nav ul li a.active{
+    background:#00d9ff;
+    color:#08131d;
+    box-shadow:0 0 30px #00d9ff;
+}
+
+/* Glow Animation */
+
+@keyframes buttonGlow{
+
+    0%{
+        box-shadow:0 0 15px rgba(0,225,255,.3);
+    }
+
+    50%{
+        box-shadow:0 0 30px rgba(0,225,255,1);
+    }
+
+    100%{
+        box-shadow:0 0 15px rgba(0,225,255,.3);
+    }
+
+}
+
